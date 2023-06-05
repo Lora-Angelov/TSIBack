@@ -43,7 +43,7 @@ app.get('/api/films', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(500).json({ error: 'Internal server error' });
     }
 }));
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
 const promise_1 = __importDefault(require("mysql2/promise"));
 const db = promise_1.default.createPool({
