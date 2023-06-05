@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getFilmsFromDatabase = exports.executeQuery = void 0;
+exports.executeQuery = void 0;
 const promise_1 = __importDefault(require("mysql2/promise"));
 const db = promise_1.default.createPool({
     host: 'localhost',
@@ -37,17 +37,13 @@ function executeQuery(query, params = []) {
     });
 }
 exports.executeQuery = executeQuery;
-function getFilmsFromDatabase() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const [rows] = yield db.query('SELECT * FROM film');
-            console.log(rows);
-            return rows;
-        }
-        catch (error) {
-            console.error(error);
-            throw new Error('Error retrieving films from the database');
-        }
-    });
-}
-exports.getFilmsFromDatabase = getFilmsFromDatabase;
+/*export async function getFilmsFromDatabase() {
+    try {
+      const [rows] = await db.query('SELECT * FROM film');
+      console.log(rows);
+      return rows;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error retrieving films from the database');
+    }
+  }*/

@@ -5,7 +5,7 @@ import routes from './routes';
 import actors from './actors';
 import path from 'path';
 import express, { Request, Response } from 'express';
-import { getFilmsFromDatabase } from './db';
+//import { getFilmsFromDatabase } from './db';
 
 
 const app = express();
@@ -48,7 +48,7 @@ const db = mysql.createPool({
 app.get('/api/films', async (req: any, res: any) => {
   try {
     // Fetch films data from the database
-    const films = await getFilmsFromDatabase();
+    const [films] = await db.query('SELECT * FROM film');
     res.json(films);
   } catch (error) {
     console.error(error);
@@ -58,8 +58,6 @@ app.get('/api/films', async (req: any, res: any) => {
 
 
 
-
-/*
 app.get('/test-db', async (req:Request, res:any) => {
   try {
     const [rows, fields] = await db.query('SELECT * FROM actor');
@@ -68,6 +66,6 @@ app.get('/test-db', async (req:Request, res:any) => {
     console.error(err);
     res.status(500).send('Database error');
   }
-});*/
+});
 
 export default app;

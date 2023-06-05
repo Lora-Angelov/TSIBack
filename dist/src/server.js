@@ -19,7 +19,7 @@ const routes_1 = __importDefault(require("./routes"));
 const actors_1 = __importDefault(require("./actors"));
 const path_1 = __importDefault(require("path"));
 const express_1 = __importDefault(require("express"));
-const db_1 = require("./db");
+//import { getFilmsFromDatabase } from './db';
 const app = (0, express_1.default)();
 app.use(body_parser_1.default.json());
 app.use((0, cors_1.default)());
@@ -49,7 +49,7 @@ const db = promise_1.default.createPool({
 app.get('/api/films', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Fetch films data from the database
-        const films = yield (0, db_1.getFilmsFromDatabase)();
+        const [films] = yield db.query('SELECT * FROM film');
         res.json(films);
     }
     catch (error) {
@@ -57,14 +57,14 @@ app.get('/api/films', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(500).json({ error: 'Internal server error' });
     }
 }));
-/*
-app.get('/test-db', async (req:Request, res:any) => {
-  try {
-    const [rows, fields] = await db.query('SELECT * FROM actor');
-    res.json(rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Database error');
-  }
-});*/
+app.get('/test-db', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const [rows, fields] = yield db.query('SELECT * FROM actor');
+        res.json(rows);
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).send('Database error');
+    }
+}));
 exports.default = app;

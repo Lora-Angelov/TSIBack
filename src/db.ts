@@ -21,7 +21,7 @@ export async function executeQuery(query: string, params: any[] = []): Promise<a
   }
 }
 
-export async function getFilmsFromDatabase() {
+/*export async function getFilmsFromDatabase() {
     try {
       const [rows] = await db.query('SELECT * FROM film');
       console.log(rows);
@@ -30,4 +30,4 @@ export async function getFilmsFromDatabase() {
       console.error(error);
       throw new Error('Error retrieving films from the database');
     }
-  }
+  }*/

@@ -6,7 +6,7 @@ import db from './db';
 import path from 'path';
  ////DATA VALIDATION///
 
-import { getFilmsFromDatabase } from './db';
+//import { getFilmsFromDatabase } from './db';
 
 const router = express.Router();
 
