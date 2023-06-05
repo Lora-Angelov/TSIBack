@@ -53,7 +53,7 @@ const db = mysql.createPool({
   ssl: {
     ca: fs.readFileSync('dist/src/DigiCertGlobalRootCA.crt.pem')
   }
-});
+});/*
 
 app.get('/test-db', async (req:Request, res:any) => {
   try {
@@ -63,6 +63,6 @@ app.get('/test-db', async (req:Request, res:any) => {
     console.error(err);
     res.status(500).send('Database error');
   }
-});
+});*/
 
 export default app;

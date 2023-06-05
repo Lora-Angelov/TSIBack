@@ -56,15 +56,15 @@ const db = promise_1.default.createPool({
     ssl: {
         ca: fs.readFileSync('dist/src/DigiCertGlobalRootCA.crt.pem')
     }
-});
-app.get('/test-db', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const [rows, fields] = yield db.query('SELECT * FROM actor');
-        res.json(rows);
-    }
-    catch (err) {
-        console.error(err);
-        res.status(500).send('Database error');
-    }
-}));
+}); /*
+
+app.get('/test-db', async (req:Request, res:any) => {
+  try {
+    const [rows, fields] = await db.query('SELECT * FROM actor');
+    res.json(rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Database error');
+  }
+});*/
 exports.default = app;
