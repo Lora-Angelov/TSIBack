@@ -14,13 +14,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const db_1 = __importDefault(require("./db"));
-const joi_1 = __importDefault(require("joi"));
 const router = express_1.default.Router();
 // Define the Joi schema for actor validation
-const actorSchema = joi_1.default.object({
-    first_name: joi_1.default.string().required(),
-    last_name: joi_1.default.string().required()
-});
+/*const actorSchema = joi.object({
+    first_name: joi.string().required(),
+    last_name: joi.string().required()
+  });*/
 // Get all actors
 router.get('/actors', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {

@@ -28,9 +28,9 @@ app.use(express_1.default.static('public'));
 app.use('/api', routes_1.default);
 app.use('/api', actors_1.default);
 // Serve index.html for the root URL
-app.get('/', (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, 'public', 'index.html'));
-});
+/*app.get('/', (req:Request, res:Response) => {
+
+  });*/
 // API route for fetching films data
 app.get('/api/films', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {

@@ -5,7 +5,6 @@ import { executeQuery } from './db';
 import db from './db';
 import path from 'path';
  ////DATA VALIDATION///
-import joi from 'joi';
 
 import { getFilmsFromDatabase } from './db';
 

@@ -1,15 +1,14 @@
 import express from 'express';
 import { Request, Response } from 'express';
 import db from './db';
-import joi from 'joi';
 
 const router = express.Router();
 
 // Define the Joi schema for actor validation
-const actorSchema = joi.object({
+/*const actorSchema = joi.object({
     first_name: joi.string().required(),
     last_name: joi.string().required()
-  });
+  });*/
 
 // Get all actors
 router.get('/actors', async (req: Request, res: any) => {

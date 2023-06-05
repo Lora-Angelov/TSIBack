@@ -21,9 +21,9 @@ app.use('/api', routes);
 app.use('/api', actors);
 
 // Serve index.html for the root URL
-app.get('/', (req:Request, res:Response) => {
-    (res as any).sendFile(path.join(__dirname, 'public', 'index.html'));
-  });
+/*app.get('/', (req:Request, res:Response) => {
+
+  });*/
 
 // API route for fetching films data
 app.get('/api/films', async (req: any, res: any) => {
