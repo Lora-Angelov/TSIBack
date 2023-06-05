@@ -49,7 +49,7 @@ const db = promise_1.default.createPool({
 app.get('/api/films', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Fetch films data from the database
-        const [films] = yield db.query('SELECT * FROM film');
+        const [films, _] = yield db.query('SELECT * FROM film');
         res.json(films);
     }
     catch (error) {
@@ -64,7 +64,7 @@ app.get('/test-db', (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
     catch (err) {
         console.error(err);
-        res.status(500).send('Database error');
+        res.status(500).send('Database error1');
     }
 }));
 exports.default = app;

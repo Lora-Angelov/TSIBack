@@ -38,7 +38,7 @@ router.get('/films', async (req: Request, res: any) => {
     res.json(films);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Database error');
+    res.status(500).send('Database error2');
   }
 });
 
@@ -54,7 +54,7 @@ router.get('/films/:id', async (req: any, res: any) => {
     }
   } catch (err) {
     console.error(err);
-    res.status(500).send('Database error');
+    res.status(500).send('Database error3');
   }
 });
 

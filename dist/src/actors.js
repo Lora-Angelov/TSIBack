@@ -28,7 +28,7 @@ router.get('/actors', (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
     catch (err) {
         console.error(err);
-        res.status(500).send('Database error');
+        res.status(500).send('Database error4');
     }
 }));
 // Get a single actor by ID
@@ -43,12 +43,12 @@ router.get('/actors/:id', (req, res) => __awaiter(void 0, void 0, void 0, functi
             res.json(actor[0]);
         }
         else {
-            res.status(500).send('Database error');
+            res.status(500).send('Database error5');
         }
     }
     catch (err) {
         console.error(err);
-        res.status(500).send('Database error');
+        res.status(500).send('Database error6');
     }
 }));
 /*

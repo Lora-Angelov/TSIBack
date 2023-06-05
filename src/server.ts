@@ -48,7 +48,7 @@ const db = mysql.createPool({
 app.get('/api/films', async (req: any, res: any) => {
   try {
     // Fetch films data from the database
-    const [films] = await db.query('SELECT * FROM film');
+    const [films, _] = await db.query('SELECT * FROM film');
     res.json(films);
   } catch (error) {
     console.error(error);
@@ -64,7 +64,7 @@ app.get('/test-db', async (req:Request, res:any) => {
     res.json(rows);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Database error');
+    res.status(500).send('Database error1');
   }
 });
 

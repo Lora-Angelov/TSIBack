@@ -45,7 +45,7 @@ router.get('/films', (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
     catch (err) {
         console.error(err);
-        res.status(500).send('Database error');
+        res.status(500).send('Database error2');
     }
 }));
 // Get a specific film by ID
@@ -62,7 +62,7 @@ router.get('/films/:id', (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
     catch (err) {
         console.error(err);
-        res.status(500).send('Database error');
+        res.status(500).send('Database error3');
     }
 }));
 exports.default = router;

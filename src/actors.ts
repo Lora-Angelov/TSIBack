@@ -17,7 +17,7 @@ router.get('/actors', async (req: Request, res: any) => {
     res.json(actors);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Database error');
+    res.status(500).send('Database error4');
   }
 });
 
@@ -31,11 +31,11 @@ router.get('/actors/:id', async (req: any, res: any) => {
       } else if (Array.isArray(actor)) {
         res.json(actor[0]);
       } else {
-        res.status(500).send('Database error');
+        res.status(500).send('Database error5');
       }
     } catch (err) {
       console.error(err);
-      res.status(500).send('Database error');
+      res.status(500).send('Database error6');
     }
   });
 
