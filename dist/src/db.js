@@ -12,13 +12,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.executeQuery = void 0;
+exports.getFilmsFromDatabase = exports.executeQuery = void 0;
 const promise_1 = __importDefault(require("mysql2/promise"));
+var fs = require('fs');
 const db = promise_1.default.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'roottoor',
-    database: 'sakila'
+    host: 'tsiprojectsql.mysql.database.azure.com',
+    user: 'admin1',
+    password: 'Password1',
+    database: 'sakila',
+    ssl: {
+        ca: fs.readFileSync('dist/src/DigiCertGlobalRootCA.crt.pem')
+    }
 });
 exports.default = db;
 function executeQuery(query, params = []) {
@@ -37,13 +41,17 @@ function executeQuery(query, params = []) {
     });
 }
 exports.executeQuery = executeQuery;
-/*export async function getFilmsFromDatabase() {
-    try {
-      const [rows] = await db.query('SELECT * FROM film');
-      console.log(rows);
-      return rows;
-    } catch (error) {
-      console.error(error);
-      throw new Error('Error retrieving films from the database');
-    }
-  }*/
+function getFilmsFromDatabase() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const [rows] = yield db.query('SELECT * FROM film');
+            console.log(rows);
+            return rows;
+        }
+        catch (error) {
+            console.error(error);
+            throw new Error('Error retrieving films from the database');
+        }
+    });
+}
+exports.getFilmsFromDatabase = getFilmsFromDatabase;
