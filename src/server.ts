@@ -25,17 +25,6 @@ app.use('/api', actors);
 
   });*/
 
-// API route for fetching films data
-app.get('/api/films', async (req: any, res: any) => {
-    try {
-      // Fetch films data from the database
-      const films = await getFilmsFromDatabase();
-      res.json(films);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  });
 
 
 const port = process.env.PORT || 3000;
@@ -54,6 +43,19 @@ const db = mysql.createPool({
     ca: fs.readFileSync('dist/src/DigiCertGlobalRootCA.crt.pem')
   }
 });
+
+// API route for fetching films data
+app.get('/api/films', async (req: any, res: any) => {
+  try {
+    // Fetch films data from the database
+    const films = await getFilmsFromDatabase();
+    res.json(films);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 
 

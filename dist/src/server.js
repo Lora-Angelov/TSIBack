@@ -32,18 +32,6 @@ app.use('/api', actors_1.default);
 /*app.get('/', (req:Request, res:Response) => {
 
   });*/
-// API route for fetching films data
-app.get('/api/films', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        // Fetch films data from the database
-        const films = yield (0, db_1.getFilmsFromDatabase)();
-        res.json(films);
-    }
-    catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-}));
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
 const promise_1 = __importDefault(require("mysql2/promise"));
@@ -57,6 +45,18 @@ const db = promise_1.default.createPool({
         ca: fs.readFileSync('dist/src/DigiCertGlobalRootCA.crt.pem')
     }
 });
+// API route for fetching films data
+app.get('/api/films', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        // Fetch films data from the database
+        const films = yield (0, db_1.getFilmsFromDatabase)();
+        res.json(films);
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}));
 /*
 app.get('/test-db', async (req:Request, res:any) => {
   try {
