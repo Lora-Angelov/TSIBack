@@ -47,11 +47,15 @@ app.get('/api/films', (req, res) => __awaiter(void 0, void 0, void 0, function* 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
 const promise_1 = __importDefault(require("mysql2/promise"));
+var fs = require('fs');
 const db = promise_1.default.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'roottoor',
-    database: 'sakila'
+    host: 'tsiprojectsql.mysql.database.azure.com',
+    user: 'admin1',
+    password: 'Password1',
+    database: 'sakila',
+    ssl: {
+        ca: fs.readFileSync('DigiCertGlobalRootCA.crt.pem')
+    }
 });
 app.get('/test-db', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {

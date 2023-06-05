@@ -43,12 +43,16 @@ app.listen(port, () => console.log(`Server running on port ${port}`));
 
 import mysql from 'mysql2/promise';
 
+var fs = require('fs');
 
 const db = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'roottoor',
-  database: 'sakila'
+  host: 'tsiprojectsql.mysql.database.azure.com',
+  user: 'admin1',
+  password: 'Password1',
+  database: 'sakila',
+  ssl: {
+    ca: fs.readFileSync('DigiCertGlobalRootCA.crt.pem')
+  }
 });
 
 app.get('/test-db', async (req:Request, res:any) => {
