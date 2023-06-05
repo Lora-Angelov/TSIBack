@@ -24,6 +24,7 @@ export async function executeQuery(query: string, params: any[] = []): Promise<a
 export async function getFilmsFromDatabase() {
     try {
       const [rows] = await db.query('SELECT * FROM film');
+      console.log(rows);
       return rows;
     } catch (error) {
       console.error(error);

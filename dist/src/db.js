@@ -41,6 +41,7 @@ function getFilmsFromDatabase() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const [rows] = yield db.query('SELECT * FROM film');
+            console.log(rows);
             return rows;
         }
         catch (error) {

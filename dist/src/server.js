@@ -56,8 +56,8 @@ const db = promise_1.default.createPool({
     ssl: {
         ca: fs.readFileSync('dist/src/DigiCertGlobalRootCA.crt.pem')
     }
-}); /*
-
+});
+/*
 app.get('/test-db', async (req:Request, res:any) => {
   try {
     const [rows, fields] = await db.query('SELECT * FROM actor');
