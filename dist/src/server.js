@@ -54,7 +54,7 @@ const db = promise_1.default.createPool({
     password: 'Password1',
     database: 'sakila',
     ssl: {
-        ca: fs.readFileSync('DigiCertGlobalRootCA.crt.pem')
+        ca: fs.readFileSync('dist/src/DigiCertGlobalRootCA.crt.pem')
     }
 });
 app.get('/test-db', (req, res) => __awaiter(void 0, void 0, void 0, function* () {

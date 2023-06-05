@@ -1,4 +1,4 @@
-
+#!/usr/bin/env node
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import routes from './routes';
@@ -51,7 +51,7 @@ const db = mysql.createPool({
   password: 'Password1',
   database: 'sakila',
   ssl: {
-    ca: fs.readFileSync('DigiCertGlobalRootCA.crt.pem')
+    ca: fs.readFileSync('dist/src/DigiCertGlobalRootCA.crt.pem')
   }
 });
 
